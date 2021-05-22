@@ -1,0 +1,21 @@
+﻿@page "/"
+
+
+<input type="text" @bind-value="@message"/>
+<input type="text" @bind-value="@message" />
+<input type="text" @bind-value="@message" />
+<input type="button" value="Enviar formulario" @onclick="ChangeText"/>
+
+<div>
+    @message
+</div>
+
+
+@code{
+    string message = "Un contenido";
+
+    private void ChangeText()
+    {
+        message = "Se ha enviado la información";
+    }
+}
