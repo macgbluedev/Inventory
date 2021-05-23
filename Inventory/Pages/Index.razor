@@ -2,8 +2,7 @@
 
 
 <input type="text" @bind-value="@message"/>
-<input type="text" @bind-value="@message" />
-<input type="text" @bind-value="@message" />
+<input type="text" @bind-value="@text" />
 <input type="button" value="Enviar formulario" @onclick="ChangeText"/>
 
 <div>
@@ -13,9 +12,10 @@
 
 @code{
     string message = "Un contenido";
+    string text;
 
     private void ChangeText()
     {
-        message = "Se ha enviado la información";
+        message = text;
     }
 }

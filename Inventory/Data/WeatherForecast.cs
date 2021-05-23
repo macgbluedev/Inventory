@@ -1,6 +1,6 @@
 using System;
 
-namespace Inventary.Data
+namespace Inventory.Data
 {
 	public class WeatherForecast
 	{
