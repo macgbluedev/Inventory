@@ -1,21 +1,8 @@
 ﻿@page "/"
 
 
-<input type="text" @bind-value="@message"/>
-<input type="text" @bind-value="@text" />
-<input type="button" value="Enviar formulario" @onclick="ChangeText"/>
+<FormBasic Message="Entrada al componente"></FormBasic>
 
-<div>
-    @message
-</div>
+<FormBasic Message="Entrada al componente2"></FormBasic>
 
-
-@code{
-    string message = "Un contenido";
-    string text;
-
-    private void ChangeText()
-    {
-        message = text;
-    }
-}
+<FormBasic Message="Entrada al componente3"></FormBasic>
