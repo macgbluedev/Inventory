@@ -4,7 +4,7 @@ using System;
 
 namespace DataAccess
 {
-	class InventaryContext : DbContext
+	public class InventaryContext : DbContext
 	{
 		public DbSet<ProductEntity> Products { get; set; }
 		public DbSet<StorageEntity> Storages { get; set; }
