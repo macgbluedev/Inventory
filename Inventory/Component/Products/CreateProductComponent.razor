@@ -1,21 +1,32 @@
 ﻿@using Business
 @using Entities
 @inject B_Product bProduct
+@inject B_Category bCategory
 
 
 <div>
     <EditForm Model="oProduct">
-        <div class="form-control">
+        <div class="form-group">
             <label>Referencia:</label>
             <InputText @bind-Value="oProduct.ProductId" class="form-control" />
         </div>
-        <div class="form-control">
+        <div class="form-group">
             <label>Nombre del producto:</label>
             <InputText @bind-Value="oProduct.ProductName" class="form-control" />
         </div>
-        <div class="form-control">
+        <div class="form-group">
             <label>Descripcion del producto:</label>
             <InputTextArea @bind-Value="oProduct.ProductDescription" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Categoría:</label>
+            <InputSelect @bind-Value="oProduct.CategoryId" class="form-control">
+                @foreach(var category in categories)
+                {
+                    <option value="@category.CategoryId">@category.CategoryName</option>
+                }
+            </InputSelect>
+
         </div>
 
         <input type="button" value="Agregar producto" @onclick="SaveProduct" />
@@ -24,6 +35,12 @@
 
 @code {
     ProductEntity oProduct = new ProductEntity();
+    List<CategoryEntity> categories = new List<CategoryEntity>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        categories = bCategory.CategoryList();
+    }
 
     private void SaveProduct()
     {
