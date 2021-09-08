@@ -2,6 +2,7 @@
 @using Entities
 @inject B_Product bProduct
 @inject B_Category bCategory
+@inject NavigationManager NavManager
 
 
 <div>
@@ -45,6 +46,7 @@
     private void SaveProduct()
     {
         bProduct.CreateProduct(oProduct);
+        NavManager.NavigateTo("product/list");
     }
 
 }
